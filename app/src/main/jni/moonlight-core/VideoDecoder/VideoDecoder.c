@@ -455,12 +455,12 @@ VideoDecoder* VideoDecoder_create(JNIEnv *env, jobject surface, const char* deco
             AMediaFormat_setInt32(videoFormat, "vendor.qti-ext-dec-low-latency.enable", 1);
         }
 
-        // hisi low latency decode
-//        if (MediaCodecHelper_decoderSupportsHisiVendorLowLatency(decoderName)) {
-//            AMediaFormat_setInt32(videoFormat, "vender.hisi-ext-low-latency-video-dec.video-scene-for-low-latency-req", 1);
-//            AMediaFormat_setInt32(videoFormat, "vender.hisi-ext-low-latency-video-dec.video-scene-for-low-latency-rdy", -1);
-//            alwaysDropFrames = true;
-//        }
+        // 启用 华为Hisi 低延迟解码 
+       if (MediaCodecHelper_decoderSupportsHisiVendorLowLatency(decoderName)) {
+           AMediaFormat_setInt32(videoFormat, "vendor.hisi-ext-low-latency-video-dec.video-scene-for-low-latency-req", 1);
+           AMediaFormat_setInt32(videoFormat, "vendor.hisi-ext-low-latency-video-dec.video-scene-for-low-latency-rdy", -1);
+           alwaysDropFrames = true;
+       }
 
         if (maxOperatingRate) {
             AMediaFormat_setInt32(videoFormat, "operating-rate", 32767); // Short.MAX_VALUE

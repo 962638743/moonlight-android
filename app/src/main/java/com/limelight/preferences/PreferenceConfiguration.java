@@ -83,6 +83,7 @@ public class PreferenceConfiguration {
     public static final String RES_480P = "854x480";
     public static final String RES_720P = "1280x720";
     public static final String RES_1080P = "1920x1080";
+    public static final String RES_2400x1080 = "2400x1080";
     public static final String RES_1440P = "2560x1440";
     public static final String RES_4K = "3840x2160";
     public static final String RES_2K_219 = "2560x1096";
@@ -125,6 +126,9 @@ public class PreferenceConfiguration {
         }
         else if (resString.equalsIgnoreCase("1080p")) {
             return RES_1080P;
+        }
+        else if (resString.equalsIgnoreCase("2400x1080")) {
+            return RES_2400x1080;
         }
         else if (resString.equalsIgnoreCase("1440p")) {
             return RES_1440P;
