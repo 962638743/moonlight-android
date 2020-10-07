@@ -1,3 +1,8 @@
+# 在 moonlight-stream/moonlight-android(官方)基础上的优化版
+* 启用了 华为麒麟系列SOC的低延迟解码功能
+* 添加了 2400x1080分辨率支持。 
+
+
 # Moonlight Android
 
 [![Travis CI Status](https://travis-ci.org/moonlight-stream/moonlight-android.svg?branch=master)](https://travis-ci.org/moonlight-stream/moonlight-android)
