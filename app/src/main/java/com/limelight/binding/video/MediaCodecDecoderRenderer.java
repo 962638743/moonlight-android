@@ -338,6 +338,13 @@ public class MediaCodecDecoderRenderer extends VideoDecoderRenderer {
                 videoFormat.setInteger(MediaFormat.KEY_OPERATING_RATE, Short.MAX_VALUE);
             }
         }
+       
+        if (selectedDecoderName.contains("hisi")) {
+             //启用 hisi 低延迟解码功能
+            videoFormat.setInteger("vendor.hisi-ext-low-latency-video-dec.video-scene-for-low-latency-req", 1);
+            videoFormat.setInteger("vendor.hisi-ext-low-latency-video-dec.video-scene-for-low-latency-rdy", -1);
+        }
+
 
         configuredFormat = videoFormat;
         LimeLog.info("Configuring with format: "+configuredFormat);

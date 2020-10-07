@@ -345,6 +345,10 @@ public class MediaCodecHelper {
     }
 
     public static boolean decoderSupportsLowLatency(MediaCodecInfo decoderInfo, String mimeType) {
+        //跳过 hisi解码器 低延迟支持性检查。
+        if(decoderInfo.getName().contains("hisi"))
+         return true;
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             try {
                 if (decoderInfo.getCapabilitiesForType(mimeType).isFeatureSupported(CodecCapabilities.FEATURE_LowLatency)) {
